@@ -1,0 +1,24 @@
+# install package requirements from setup.py
+-e .
+# pip freeze -r requirements-dev.txt
+bumpversion
+wheel
+tox
+twine
+
+# Tests
+pytest>=4,<5
+pytest-cov
+mock
+
+# Docs
+
+Sphinx
+sphinx_rtd_theme
+recommonmark
+m2r2
+sphinx-autodoc-typehints
+sphinx-paramlinks
+
+# QA
+pre-commit
