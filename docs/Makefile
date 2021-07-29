@@ -4,7 +4,7 @@
 # You can set these variables from the command line.
 SPHINXOPTS    =
 SPHINXBUILD   = sphinx-build
-SPHINXPROJ    = {python-library-template}
+SPHINXPROJ    = pytest-django-liveserver-ssl
 SOURCEDIR     = source
 BUILDDIR      = build
 

@@ -32,8 +32,8 @@ if sys.argv[1] == 'bumpversion':
 
 __doc__ = ""
 
-project_name = '{python-library-template}'
-app_name = '{example_library}'
+project_name = 'pytest-django-liveserver-ssl'
+app_name = 'pytest_django_liveserver_ssl'
 
 ROOT = os.path.dirname(__file__)
 

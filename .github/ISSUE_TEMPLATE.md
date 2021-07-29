@@ -1,4 +1,4 @@
-* {python-library-template} version:
+* pytest-django-liveserver-ssl version:
 * Python version:
 * Operating System:
 

@@ -21,7 +21,7 @@ sys.path.insert(0, os.path.abspath("../.."))
 # -- Project information -----------------------------------------------------
 
 
-project = "{python-library-template}"
+project = "pytest-django-liveserver-ssl"
 copyright = "2021, Apkawa <apkawa@gmail.com"
 author = "Apkawa <apkawa@gmail.com"
 
