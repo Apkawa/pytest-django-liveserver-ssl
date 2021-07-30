@@ -15,6 +15,10 @@ jobs:
         toxenv: [""]
         experimental: [ false ]
         include:
+          - python-version: "3.10.0-beta.2 - 3.10"
+            experimental: true
+          - python-version: "pypy-3.7"
+            experimental: true
           - toxenv: qa
             python-version: 3.7
             experimental: false
@@ -22,11 +26,6 @@ jobs:
             python-version: 3.7
             experimental: false
 
-          - python-version: "3.10.0-beta.2 - 3.10"
-            experimental: true
-
-          - python-version: "pypy-3.7"
-            experimental: true
 
 
     continue-on-error: ${{ matrix.experimental }}
@@ -43,7 +42,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install tox tox-gh-actions
+          pip install tox tox-gh-actions codecov
       - name: Run tests
         run: tox
       - uses: codecov/codecov-action@v1
