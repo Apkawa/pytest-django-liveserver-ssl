@@ -132,7 +132,9 @@ latex_elements = {
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
-latex_documents = [(master_doc, project + ".tex", project + " Documentation", "Apkawa", "manual")]
+latex_documents = [
+    (master_doc, project + ".tex", project + " Documentation", "Apkawa", "manual")
+]
 
 # -- Options for manual page output ------------------------------------------
 
@@ -165,7 +167,10 @@ def setup(app):
     git_doc_root = "https://githib.com/Apkawa/%s/blob/master/docs/" % project
     app.add_config_value(
         "recommonmark_config",
-        {"url_resolver": lambda url: git_doc_root + url, "auto_toc_tree_section": "Contents"},
+        {
+            "url_resolver": lambda url: git_doc_root + url,
+            "auto_toc_tree_section": "Contents",
+        },
         True,
     )
     app.add_transform(AutoStructify)

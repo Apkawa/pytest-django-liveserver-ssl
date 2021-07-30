@@ -7,9 +7,10 @@ tox
 twine
 
 # Tests
-pytest>=4,<5
+pytest>=6
 pytest-cov
 mock
+requests
 
 # Docs
 

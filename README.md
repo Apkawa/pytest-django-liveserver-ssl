@@ -9,13 +9,7 @@
 
 # pytest-django-liveserver-ssl
 
-Description
-
-<!--
-Template repository.
-After create call ./initial.sh 
-and git push -f
--->
+Add `live_server_ssl` fixture for pytest-django.
 
 # Installation
 
@@ -29,13 +23,16 @@ or from git
 pip install -e git+https://githib.com/Apkawa/pytest-django-liveserver-ssl.git@master#egg=pytest-django-liveserver-ssl
 ```
 
-
 # Usage
 
+```python
+import requests
 
 
+def test_live_server_connection(live_server_ssl):
+    assert live_server_ssl.remote_url.startswith("https://localhost:")
+    assert live_server_ssl.url.startswith("http://0.0.0.0:")
 
-
-
-
-
+    response = requests.get(live_server_ssl.remote_url, verify=False)
+    assert response.text == "OK"
+```
