@@ -23,7 +23,7 @@ def create_self_signed_cert(
     fields: Optional[Dict[str, str]] = None,
     ca_root_key: Optional[FileOrPath] = None,
     ca_root_crt: Optional[FileOrPath] = None,
-    hash_alg: str = "sha1",
+    hash_alg: str = "sha256",
 ) -> None:
     """
     """
