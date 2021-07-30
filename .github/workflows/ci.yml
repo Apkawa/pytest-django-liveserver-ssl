@@ -19,10 +19,10 @@ jobs:
             experimental: true
           - python-version: "pypy-3.7"
             experimental: true
-          - toxenv: qa
+          - toxenv: flake8
             python-version: 3.7
             experimental: false
-          - toxenv: type
+          - toxenv: mypy
             python-version: 3.7
             experimental: false
           - toxenv: pylint
