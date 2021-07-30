@@ -43,7 +43,7 @@ def create_self_signed_cert(
 
     # create a key pair
     key = crypto.PKey()
-    key.generate_key(crypto.TYPE_RSA, 1024)
+    key.generate_key(crypto.TYPE_RSA, 2048)
 
     cert_req = None
     if ca_root_key and ca_root_crt:
