@@ -3,7 +3,7 @@ tmp/
 .pytest_cache/
 *.py[cod]
 Pipfile*
-venv
+venv*
 
 # C extensions
 *.so

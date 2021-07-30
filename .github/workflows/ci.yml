@@ -25,6 +25,9 @@ jobs:
           - toxenv: type
             python-version: 3.7
             experimental: false
+          - toxenv: pylint
+            python-version: 3.7
+            experimental: true
 
 
 

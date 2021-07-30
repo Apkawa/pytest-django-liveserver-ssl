@@ -1,5 +1,8 @@
 [MASTER]
-load-plugins=pylint_common, pylint_django
+load-plugins=
+    pylint_pytest,
+    pylint.extensions.check_elif,
+    pylint.extensions.bad_builtin,
 
 [FORMAT]
 max-line-length=100

@@ -26,12 +26,12 @@ repos:
       - id: flake8
         name: flake8
         language: system
-        entry: tox -e qa
+        entry: tox -e flake8
         pass_filenames: false
         always_run: true
       - id: mypy
         name: mypy
         language: system
-        entry: tox -e type
+        entry: tox -e mypy
         pass_filenames: false
         always_run: true
