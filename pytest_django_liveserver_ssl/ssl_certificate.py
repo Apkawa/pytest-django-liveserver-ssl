@@ -2,9 +2,8 @@ from pathlib import Path
 from typing import Optional, Dict
 
 from OpenSSL import crypto
-from typing_extensions import TypedDict
 
-from pytest_django_liveserver_ssl._types import FileOrPath
+from pytest_django_liveserver_ssl._types import FileOrPath, TypedDict
 
 
 class FieldsType(TypedDict):

@@ -56,7 +56,7 @@ setup(
         "pytest11": ["django_liveserver_ssl = pytest_django_liveserver_ssl.plugin"]
     },
     python_requires=">=3.6, <4",
-    install_requires=["Django", "pytest-django", "pyopenssl"],
+    install_requires=["Django", "pytest-django", "pyopenssl", "typing-extensions"],
     zip_safe=False,
     include_package_data=True,
     keywords=[],
