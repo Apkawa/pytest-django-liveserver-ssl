@@ -5,6 +5,7 @@ from textwrap import dedent
 import pathlib
 
 import pytest
+from _pytest.pytester import Testdir
 from django.conf import settings
 
 
@@ -32,13 +33,13 @@ def _marker_apifun(
 
 
 @pytest.fixture
-def testdir(testdir, monkeypatch):
+def testdir(testdir, monkeypatch) -> Testdir:
     monkeypatch.delenv("PYTEST_ADDOPTS", raising=False)
     return testdir
 
 
 @pytest.fixture(scope="function")
-def django_testdir(request, testdir, monkeypatch):
+def django_testdir(request, testdir: Testdir, monkeypatch):
     # from pytest_django_test.db_helpers import (
     #     DB_NAME, TEST_DB_NAME, SECOND_DB_NAME, SECOND_TEST_DB_NAME,
     # )

@@ -72,6 +72,7 @@ class HTTPSLiveServer(LiveServer):
     remote_url: str
 
     def __init__(self, addr: str, certificate_file: PathType, key_file: PathType):
+        from django.db import connections
         super().__init__(addr)
         self.stop()
         import django
@@ -101,6 +102,15 @@ class HTTPSLiveServer(LiveServer):
             self.thread = HTTPSLiveServerThread(
                 host, port=int(port), **live_server_kwargs
             )
+
+            connections_override = {}
+            for conn in connections.all():
+                # If using in-memory sqlite databases, pass the connections to
+                # the server thread.
+                if conn.vendor == "sqlite" and conn.is_in_memory_db():  # type: ignore
+                    # Explicitly enable thread-shareability for this connection.
+                    conn.inc_thread_sharing()  # type: ignore
+                    connections_override[conn.alias] = conn
 
         self._live_server_modified_settings = modify_settings(
             ALLOWED_HOSTS={"append": host}

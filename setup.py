@@ -55,7 +55,7 @@ setup(
     entry_points={
         "pytest11": ["django_liveserver_ssl = pytest_django_liveserver_ssl.plugin"]
     },
-    python_requires=">=3.6, <4",
+    python_requires=">=3.7, <4",
     install_requires=["Django", "pytest-django", "pyopenssl", "typing-extensions"],
     zip_safe=False,
     include_package_data=True,
@@ -70,7 +70,6 @@ setup(
         "Programming Language :: Python",
         "Programming Language :: Python :: 3 :: Only",
         "Programming Language :: Python :: 3",
-        "Programming Language :: Python :: 3.6",
         "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.8",
         "Programming Language :: Python :: 3.9",

@@ -1,3 +1,4 @@
+import pytest
 import requests
 
 from tests.app.models import ExampleModel

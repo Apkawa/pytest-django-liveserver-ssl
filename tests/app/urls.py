@@ -1,10 +1,9 @@
 # coding: utf-8
 from __future__ import unicode_literals
 
-from django.conf.urls import url
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404
-from django.urls import path
+from django.urls import path, re_path as url
 
 from .models import ExampleModel
 

@@ -1,4 +1,4 @@
-[![Documentation Status](https://readthedocs.org/projects/pytest-django-liveserver-ssl/badge/?version=latest)](https://pytest-ngrok.readthedocs.io/en/latest/?badge=latest)
+[![Documentation Status](https://readthedocs.org/projects/pytest-django-liveserver-ssl/badge/?version=latest)](https://pytest-django-liveserver-ssl.readthedocs.io/en/latest/?badge=latest)
 
 [![ci](https://github.com/Apkawa/pytest-django-liveserver-ssl/actions/workflows/ci.yml/badge.svg)](https://github.com/Apkawa/pytest-django-liveserver-ssl/actions/workflows/ci.yml)
 [![Codecov](https://codecov.io/gh/Apkawa/pytest-django-liveserver-ssl/branch/master/graph/badge.svg)](https://codecov.io/gh/Apkawa/pytest-django-liveserver-ssl) </br>
