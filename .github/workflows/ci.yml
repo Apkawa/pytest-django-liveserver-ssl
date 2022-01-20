@@ -3,6 +3,9 @@ name: ci
 on:
   push:
   pull_request:
+  schedule:
+    # Weekly
+    - cron: "* * * * 0"
 
 jobs:
   test:
@@ -98,7 +101,7 @@ jobs:
           repository_url: https://test.pypi.org/legacy/
 
       - name: Publish distribution to PyPI
-        if: startsWith(github.ref, 'refs/tags')
+        if: ${{ !github.event.schedule && startsWith(github.ref, 'refs/tags') }}
         uses: pypa/gh-action-pypi-publish@master
         with:
           skip_existing: true
