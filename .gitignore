@@ -4,7 +4,7 @@ tmp/
 *.py[cod]
 Pipfile*
 venv*
-
+.python-version
 # C extensions
 *.so
 

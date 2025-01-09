@@ -1,5 +1,6 @@
 * pytest-django-liveserver-ssl version:
 * Python version:
+* Django version:
 * Operating System:
 
 ### Description
