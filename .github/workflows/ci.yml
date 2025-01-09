@@ -14,23 +14,22 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        python-version: [ 3.7, 3.8, 3.9, "3.10" ]
+        python-version: [3.8, 3.9, "3.10",  "3.11", "3.12", "3.13", ]
+
         toxenv:
-          - django22
-          - django32
-          - django40
+          - django42 #LTS
+          - django50
+          - django51
+#          - django52
         experimental: [ false ]
         exclude:
           - python-version: 3.7
             toxenv: django40
         include:
-          - python-version: "3.11.0-alpha - 3.11"
-            toxenv: django32
-            experimental: true
-          - python-version: 3.9
+          - python-version: 3.13
             toxenv: django-dev
             experimental: true
-          - python-version: "pypy-3.7"
+          - python-version: "pypy-3.10"
             experimental: true
           - toxenv: flake8
             python-version: 3.7
@@ -69,13 +68,13 @@ jobs:
     name: Build and publish Python distributions to PyPI and TestPyPI
     needs:
       - test
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@master
-      - name: Set up Python 3.7
+      - name: Set up Python 3.11
         uses: actions/setup-python@v1
         with:
-          python-version: 3.7
+          python-version: 3.11
       - name: Install pypa/build
         run: >-
           python -m
@@ -117,4 +116,3 @@ jobs:
           generate_release_notes: true
           files: |
             dist/*.whl
-

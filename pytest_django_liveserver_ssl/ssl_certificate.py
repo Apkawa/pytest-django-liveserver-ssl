@@ -25,6 +25,13 @@ def create_self_signed_cert(
     hash_alg: str = "sha256",
 ) -> None:
     """
+    :param key_file:
+    :param cert_file:
+    :param domain:
+    :param fields:
+    :param ca_root_key:
+    :param ca_root_crt:
+    :param hash_alg:
     """
     if not domain:
         domain = "localhost"
@@ -62,7 +69,6 @@ def create_self_signed_cert(
             if v:
                 setattr(cert_req_subj, k, v)
         cert_req_subj.CN = domain
-        # TODO alt names
         cert_req.set_pubkey(key)
         cert_req.sign(ca_key, hash_alg)
 

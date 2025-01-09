@@ -1,7 +1,8 @@
 # TODO move to application
 import ssl
-from distutils.version import LooseVersion
 from typing import Type, Union, Tuple, Any, Dict
+
+from packaging.version import Version
 
 from django import get_version
 from django.core.servers.basehttp import ThreadedWSGIServer
@@ -11,7 +12,7 @@ from pytest_django.live_server_helper import LiveServer
 
 from pytest_django_liveserver_ssl._types import PathType
 
-if LooseVersion(get_version()) >= LooseVersion("1.5"):
+if Version(get_version()) >= Version("1.5"):
     pass
 else:
     upath = str
@@ -27,14 +28,9 @@ class SecureHTTPServer(ThreadedWSGIServer):
         **kwargs: Any
     ):
         super(SecureHTTPServer, self).__init__(address, handler_cls, **kwargs)
-        self.socket = ssl.wrap_socket(
-            self.socket,
-            certfile=certificate,
-            keyfile=key,
-            server_side=True,
-            ssl_version=ssl.PROTOCOL_TLSv1_2,
-            cert_reqs=ssl.CERT_NONE,
-        )
+        context = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER)
+        context.load_cert_chain(certfile=certificate, keyfile=key)
+        self.socket = context.wrap_socket(self.socket, server_side=True)
 
 
 class WSGIRequestHandler(QuietWSGIRequestHandler):
@@ -51,13 +47,14 @@ class HTTPSLiveServerThread(LiveServerThread):
         self.domain = kwargs.pop("domain", "localhost")
         super().__init__(*args, **kwargs)
 
-    def _create_server(self) -> SecureHTTPServer:
+    def _create_server(self, **kwargs: Any) -> SecureHTTPServer:
         return SecureHTTPServer(
             (self.host, self.port),
             WSGIRequestHandler,
             allow_reuse_address=False,
             certificate=self.certificate_file,
             key=self.key_file,
+            **kwargs
         )
 
 
@@ -73,6 +70,7 @@ class HTTPSLiveServer(LiveServer):
 
     def __init__(self, addr: str, certificate_file: PathType, key_file: PathType):
         from django.db import connections
+
         super().__init__(addr)
         self.stop()
         import django

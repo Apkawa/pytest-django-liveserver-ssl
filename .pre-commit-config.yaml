@@ -12,7 +12,7 @@ repos:
       - id: trailing-whitespace
 
   - repo: https://github.com/psf/black
-    rev: 19.3b0
+    rev: 22.12.0
     hooks:
       - id: black
   - repo: local
@@ -35,3 +35,10 @@ repos:
         entry: tox -e mypy
         pass_filenames: false
         always_run: true
+# TODO
+#      - id: pylint
+#        name: pylint
+#        language: system
+#        entry: tox -e pylint
+#        pass_filenames: false
+#        always_run: true
