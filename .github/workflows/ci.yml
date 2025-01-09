@@ -11,7 +11,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        python-version: [3.8, 3.9, "3.10",  "3.11", "3.12", "3.13", ]
+        python-version: ["3.10",  "3.11", "3.12", "3.13", ]
 
         toxenv:
           - django42 #LTS
@@ -23,6 +23,14 @@ jobs:
           - python-version: 3.7
             toxenv: django40
         include:
+          # LTS
+          - python-version: 3.8
+            toxenv: django42
+            experimental: false
+          - python-version: 3.9
+            toxenv: django42
+            experimental: false
+
           - python-version: 3.13
             toxenv: django-dev
             experimental: true
